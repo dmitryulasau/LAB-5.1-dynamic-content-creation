@@ -3,19 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script src="./script.js" defer></script>
     <title>Dynamic Shopping Cart</title>
   </head>
-  <body>
-    <h1>Dynamic Shopping Cart</h1>
-    <div id="product-container">
-      <input type="text" id="product-name" placeholder="Product Name" />
-      <input type="number" id="product-price" placeholder="Product Price" />
-      <button id="add-product">Add Product</button>
+  <body class="flex flex-column justify-center">
+    <div class="container container-cart d-flex flex-column align-items-center p-4 border border-1 rounded">
+      <h1 class="mb-4 text-wrap text-center">Dynamic Shopping Cart</h1>
+      <div id="product-container" class="p-4 shadow-sm bg-body-tertiary rounded mb-4">
+        <div class="row g-2">
+          <div class="col-12 col-md-6">
+            <input class="form-control" type="text" id="product-name" placeholder="Product Name" />
+          </div>
+          <div class="col-12 col-md-3">
+            <input class="form-control" type="number" id="product-price" placeholder="Price $" />
+          </div>
+          <div class="col-12 col-md-3 text-center">
+            <button class="btn btn-primary" id="add-product">Add Product</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CART -->
+      <div class="w-100 table-responsive rounded-3 overflow-hidden border mb-4">
+        <table class="table mb-0 bg-body-info">
+          <colgroup>
+            <col style="width: 60%" />
+            <col style="width: 10%" />
+            <col style="width: 10%" />
+            <col style="width: 10%" />
+            <col style="width: 10%" />
+          </colgroup>
+          <thead class="table-light">
+            <tr>
+              <th>Product</th>
+              <th class="text-center">Price</th>
+              <th class="text-center">Quantity</th>
+              <th class="text-center">Subtotal</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-middle">Headphones</td>
+              <td class="text-center align-middle">$100</td>
+              <td class="text-center align-middle">2</td>
+              <td class="text-center align-middle">$200</td>
+              <td><button class="btn btn-warning">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="p-2 bg-light rounded fw-bold">Cart Total: $<span id="total-price">0</span></h3>
     </div>
-    <ul id="cart"></ul>
-    <h3>Total: $<span id="total-price">0</span></h3>
 
     <script src="script.js"></script>
   </body>
